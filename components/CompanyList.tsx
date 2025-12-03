@@ -261,7 +261,7 @@ export const CompanyList: React.FC<CompanyListProps> = ({ companies, prominentIn
 
   // Tooltip Logic
   const [activeTooltip, setActiveTooltip] = useState<TooltipData | null>(null);
-  const hoverTimer = useRef<NodeJS.Timeout | null>(null);
+  const hoverTimer = useRef<number | null>(null);
 
   // Precompute score stats for tooltips
   const scoreStats = useMemo(() => {
@@ -281,7 +281,7 @@ export const CompanyList: React.FC<CompanyListProps> = ({ companies, prominentIn
     if (hoverTimer.current) clearTimeout(hoverTimer.current);
 
     // Set delay
-    hoverTimer.current = setTimeout(() => {
+    hoverTimer.current = window.setTimeout(() => {
         setActiveTooltip({
             value,
             category: label,

@@ -210,29 +210,29 @@ const App: React.FC = () => {
                         </div>
                     )}
 
-                    {/* Score Distribution & Map Grid */}
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                        <div id="score-section" className="lg:col-span-1">
-                            <ScoreDistribution companies={data.companies} />
-                        </div>
-                        <div id="map-section" className="lg:col-span-2">
-                            <CompanyMap companies={data.companies} />
-                        </div>
+                    {/* Stacked Layout for Visualizations */}
+                    
+                    {/* 1. Score Distribution (Full Width) */}
+                    <div id="score-section" className="w-full h-[500px]">
+                        <ScoreDistribution companies={data.companies} />
                     </div>
 
-                    <div className="grid grid-cols-1 gap-8">
-                        {/* Charts Area */}
-                        <div id="trends-section">
-                            <TrendChart data={data.trends} />
-                        </div>
-                        
-                        {/* Investor Analysis */}
-                        {data.investors.length > 0 && (
-                            <div id="investors-section">
-                                <InvestorAnalysis investors={data.investors} />
-                            </div>
-                        )}
+                    {/* 2. Company Map (Full Width) */}
+                    <div id="map-section" className="w-full">
+                        <CompanyMap companies={data.companies} />
                     </div>
+
+                    {/* 3. Market Trends (Full Width) */}
+                    <div id="trends-section" className="w-full">
+                        <TrendChart data={data.trends} />
+                    </div>
+                    
+                    {/* 4. Investor Analysis (Full Width) */}
+                    {data.investors.length > 0 && (
+                        <div id="investors-section" className="w-full">
+                            <InvestorAnalysis investors={data.investors} />
+                        </div>
+                    )}
 
                     {/* Main Table */}
                     <div id="companies-section">

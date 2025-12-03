@@ -12,7 +12,7 @@ export const FileUpload: React.FC<FileUploadProps> = ({ onDataLoaded }) => {
     const files = e.target.files;
     if (!files || files.length === 0) return;
 
-    const filePromises = Array.from(files).map(file => {
+    const filePromises = Array.from(files).map((file: File) => {
       return new Promise<string>((resolve) => {
         const reader = new FileReader();
         reader.onload = (event) => {
